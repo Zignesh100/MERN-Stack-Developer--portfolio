@@ -2,53 +2,6 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Mail, Linkedin, Github } from "lucide-react";
 // Add fade-in and bounce animation keyframes
-const fadeInStyle = `
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .fade-in {
-    animation: fadeIn 1s ease-out;
-  }
-  @keyframes bounceDot {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-  }
-  .bouncing-dot {
-    animation: bounceDot 1s infinite;
-  }
-  @keyframes scrollMouse {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(20px); }
-  }
-  .scroll-mouse {
-    animation: scrollMouse 1.5s infinite;
-  }
-  @keyframes slideInLeft {
-    from { opacity: 0; transform: translateX(-60px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-  .slide-in-left {
-    animation: slideInLeft 1s cubic-bezier(0.4,0,0.2,1);
-  }
-  @keyframes slideInUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .slide-in-up {
-    animation: slideInUp 1s cubic-bezier(0.4,0,0.2,1);
-  }
-  .pulse-anim {
-    animation: pulse 1.5s infinite;
-  }
-  @keyframes spotBounce {
-    0%, 100% { transform: translateY(0); box-shadow: 0 0 12px #2701fd, 0 0 24px #2701fd44; }
-    50% { transform: translateY(-16px); box-shadow: 0 0 24px #2701fd, 0 0 48px #2701fd88; }
-  }
-  .spot-bounce {
-    animation: spotBounce 1.2s infinite;
-  }
-`;
 
 const Portfolio = () => {
   // Typewriter effect for the title
@@ -66,90 +19,238 @@ const Portfolio = () => {
   }, []);
 
   return (
-    // <div className="relative w-full my-24 bg-[#050816] flex flex-col justify-center px-4 sm:px-8 md:px-24">
-    //   <div className="fixed inset-0 -z-10 bg-[#050816]"></div>
+    <div className="relative w-full  bg-[#020201] flex flex-col justify-center px-5  pb-10 sm:px-8 md:px-24">
+   
+      {/* <div className="px-4 py-10 sm:px-6 md:px-10 lg:px-16">
+        <h3 className="text-white font-black text-[30px] xs:text-[40px] sm:text-[50px] md:text-[60px] text-center">
+          Skills
+        </h3>
 
-    //   <div className="flex w-full flex-col lg:flex-row justify-between items-center lg:items-start gap-6">
-    //     {/* Left Side: Introduction */}
-    //     <div className="flex-1">
-    //       <motion.div
-    //         initial={{ opacity: 0, x: -60 }}
-    //         animate={{ opacity: 1, x: 0 }}
-    //         transition={{ duration: 1 }}
-    //         className="flex items-center gap-4 mb-8 "
-    //       >
-    //         <motion.div
-    //           initial={{ y: 0 }}
-    //           animate={{ y: [-10, 0, -10] }}
-    //           transition={{ repeat: Infinity, duration: 1.2 }}
-    //           className="w-4 h-4 rounded-full bg-[#2701fd]"
-    //         />
-    //         <h1 className="text-2xl sm:text-4xl  font-extrabold text-white">
-    //           Introduction <span className="text-[#2701fd]">Overview.</span>
-    //         </h1>
-    //       </motion.div>
+        <motion.div
+          className="flex flex-wrap justify-center gap-6 mt-8"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.15 } },
+          }}
+        >
+         
+          {[
+            {
+              src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg",
+              label: "MongoDB",
+              color: "text-green-400",
+            },
+            {
+              src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg",
+              label: "Express",
+              color: "text-gray-200",
+              extraClass: "bg-white rounded-full p-1",
+            },
+            {
+              src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg",
+              label: "React",
+              color: "text-blue-400",
+            },
+            {
+              src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg",
+              label: "Node.js",
+              color: "text-green-300",
+            },
+            {
+              src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg",
+              label: "Redux",
+              color: "text-purple-600",
+            },
+            {
+              src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg",
+              label: "Git",
+              color: "text-orange-600",
+            },
+            {
+              src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg",
+              label: "GitHub",
+              color: "text-white",
+            },
+            {
+              src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg",
+              label: "HTML",
+              color: "text-orange-500",
+            },
+            {
+              src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg",
+              label: "CSS",
+              color: "text-blue-600",
+            },
+            {
+              src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
+              label: "JavaScript",
+              color: "text-yellow-500",
+            },
+            {
+              src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/materialui/materialui-original.svg",
+              label: "Material UI",
+              color: "text-blue-800",
+            },
+            {
+              src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg",
+              label: "SQL",
+              color: "text-blue-600",
+            },
+            {
+              src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-original.svg",
+              label: "Bootstrap",
+              color: "text-purple-600",
+            },
+          ].map((skill, index) => (
+            <motion.div
+              key={index}
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              className="flex flex-col items-center w-[80px] sm:w-[90px] md:w-[100px]"
+            >
+              <img
+                src={skill.src}
+                alt={skill.label}
+                className={`w-10 h-10 mb-1 ${skill.extraClass || ""}`}
+              />
+              <span
+                className={`text-xs font-semibold mt-1 text-center ${skill.color}`}
+              >
+                {skill.label}
+              </span>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div> */}
 
-    //       <motion.p
-    //         initial={{ opacity: 0, y: 40 }}
-    //         animate={{ opacity: 1, y: 0 }}
-    //         transition={{ duration: 1 }}
-    //         className="max-w-2xl text-white text-left text-base sm:text-xl font-semibold leading-relaxed"
-    //       >
-    //         I'm a skilled JavaScript developer with expertise in{" "}
-    //         <span className="text-[#2701fd]">React, Node.js, Express.js</span>,
-    //         and <span className="text-[#2701fd]">MongoDB</span>. I build
-    //         efficient, scalable, and user-friendly applications that solve
-    //         real-world problems. Let's work together to bring your ideas to
-    //         life!
-    //       </motion.p>
-    //     </div>
+<div className="px-4 py-10 sm:px-6 md:px-10 lg:px-16">
+  <h3 className="text-white font-black text-[30px] xs:text-[40px] sm:text-[50px] md:text-[60px] text-center">
+    Skills
+  </h3>
 
-    //     {/* Right Side: Contact Links */}
-    //     <div className=" bg-[#100D25]  rounded-lg py-10 px-4  m-4 ">
-    //       <p className=" text-white md:text-2xl font-extrabold ">
-    //         Get in touch <span className="text-[#2701fd]">Contact.</span>
-    //       </p>
-    //       <motion.div
-    //         initial={{ opacity: 0, y: -20 }}
-    //         animate={{ opacity: 1, y: 0 }}
-    //         transition={{ duration: 1, delay: 0.3 }}
-    //         className="flex  py-8  gap-4"
-    //       >
-    //         <a
-    //           href="mailto:jigu4200@gmail.com"
-    //           target="_blank"
-    //           rel="noopener noreferrer"
-    //           className="flex items-center gap-2 text-white border border-[#037BFE] rounded-md px-4 py-2 hover:text-[#037BFE] transition-colors duration-300"
-    //         >
-    //           Email <Mail className="w-5 h-5" />
-    //         </a>
-    //         <a
-    //           href="https://github.com/Zignesh100"
-    //           target="_blank"
-    //           rel="noopener noreferrer"
-    //           className="flex items-center gap-2 text-white border border-[#037BFE] rounded-md px-4 py-2 hover:text-[#037BFE] transition-colors duration-300"
-    //         >
-    //           Github <Github className="w-5 h-5" />
-    //         </a>
-    //         <a
-    //           href="https://www.linkedin.com/in/zignesh-v55"
-    //           target="_blank"
-    //           rel="noopener noreferrer"
-    //           className="flex items-center gap-2 text-white border border-[#037BFE] rounded-md px-4 py-2 hover:text-[#037BFE] transition-colors duration-300"
-    //         >
-    //           LinkedIn <Linkedin className="w-5 h-5" />
-    //           am,l
-    //         </a>
-    //       </motion.div>
-    //     </div>
-    //   </div>
-    // </div>
+  <motion.div
+    className="flex flex-wrap justify-center gap-6 mt-8"
+    initial="hidden"
+    animate="visible"
+    variants={{
+      hidden: {},
+      visible: { transition: { staggerChildren: 0.15 } },
+    }}
+  >
+    {/* Skill Item Template */}
+    {[
+      {
+        src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg",
+        label: "MongoDB",
+        color: "text-green-400",
+      },
+      {
+        src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg",
+        label: "Express",
+        color: "text-gray-200",
+        extraClass: "bg-white rounded-full p-1",
+      },
+      {
+        src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg",
+        label: "React",
+        color: "text-blue-400",
+      },
+      {
+        src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg",
+        label: "Node.js",
+        color: "text-green-300",
+      },
+      {
+        src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg",
+        label: "Redux",
+        color: "text-purple-600",
+      },
+      {
+        src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg",
+        label: "Git",
+        color: "text-orange-600",
+      },
+      {
+        src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg",
+        label: "GitHub",
+        color: "text-white",
+      },
+      {
+        src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg",
+        label: "HTML",
+        color: "text-orange-500",
+      },
+      {
+        src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg",
+        label: "CSS",
+        color: "text-blue-600",
+      },
+      {
+        src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
+        label: "JavaScript",
+        color: "text-yellow-500",
+      },
+      {
+        src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/materialui/materialui-original.svg",
+        label: "Material UI",
+        color: "text-blue-800",
+      },
+      {
+        src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg",
+        label: "SQL",
+        color: "text-blue-600",
+      },
+      {
+        src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-original.svg",
+        label: "Bootstrap",
+        color: "text-purple-600",
+      },
+    ].map((skill, index) => (
+      <motion.div
+        key={index}
+        variants={{
+          hidden: { opacity: 0, y: 30 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        className="flex flex-col items-center w-[80px] sm:w-[90px] md:w-[100px] transition-transform duration-300 hover:scale-110"
+      >
+        <div className={`relative transition duration-300 hover:shadow-lg hover:shadow-${skill.color.split('-')[1]}-500`}>
+          <img
+            src={skill.src}
+            alt={skill.label}
+            className={`w-12 h-12 mb-1 ${skill.extraClass || ""} transition duration-300`}
+          />
+          <div className={`absolute inset-0 rounded-full bg-${skill.color.split('-')[1]}-500 opacity-0 transition-opacity duration-300 hover:opacity-50`} />
+        </div>
+        <span
+          className={`text-xs font-semibold mt-1 text-center ${skill.color}`}
+        >
+          {skill.label}
+        </span>
+      </motion.div>
+    ))}
+  </motion.div>
+</div>
+
+<style jsx>{`
+  .hover\\:shadow-lg:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+`}</style>
 
 
-     <div className="relative w-full py-16 sm:py-24 bg-[#050816] flex flex-col justify-center px-4 sm:px-8 md:px-24">
-      <div className="fixed inset-0 -z-10 bg-[#050816]" />
+<style jsx>{`
+  .hover\\:shadow-lg:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+`}</style>
 
-      <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-12">
+
+      <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start py-10 gap-12">
         {/* Left Side: Introduction */}
         <div className="flex-1">
           <motion.div
@@ -222,6 +323,29 @@ const Portfolio = () => {
           </motion.div>
         </div>
       </div>
+
+<div className="px-4 py-10 sm:px-6 md:px-10 lg:px-16">
+  <p className="text-white text-xl font-bold sm:text-xl">
+    I also share Full Stack development tutorials and tips on my Instagram.
+    Follow me here:
+  </p>
+  <div className="mt-4 ">
+    <a
+    href="https://www.instagram.com/code_ki_pathshala/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center text-white  hover:text-[#037BFE] font-semibold"
+  >
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+      alt="Instagram Logo"
+      className="h-6 w-6 mr-2 "
+    />
+    @code_ki_pathshala
+  </a>
+  </div>
+</div>
+
     </div>
   );
 };

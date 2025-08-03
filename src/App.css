@@ -1,20 +1,25 @@
+
 .large-header {
   position: relative;
   width: 100%;
-  background-color:#050816 ;
-  /* background: #333 url('https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/img/demo-1-bg.jpg') center center / cover no-repeat; */
+ min-height: 60vh;
+
+  background-image: url('./image/giyu-tomioka-amoled-3840x2160-22604.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   overflow: hidden;
   z-index: 1;
 }
 
 .main-title {
-    width: 100%;
+  width: 100%;
   position: absolute;
   margin: 0;
   padding: 0;
   color: #f9f1e9;
   text-align: center;
-  top: 50%;
+  top: 75%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
   text-transform: uppercase;
@@ -26,8 +31,6 @@
   font-weight: 200;
 }
 
-/* @media only screen and (max-width: 100%) {
-  .main-title {
-    font-size: 3em;
-  }
-} */
+
+
+

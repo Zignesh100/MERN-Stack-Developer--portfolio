@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-
+import bgimage from "../image/bgiamge.png";
+import Portfolio from "../component/Portfolio";
 
 const AnimatedHeader = () => {
   const canvasRef = useRef(null);
@@ -124,7 +125,7 @@ const AnimatedHeader = () => {
       ctx.beginPath();
       ctx.moveTo(p.x, p.y);
       ctx.lineTo(closeP.x, closeP.y);
-      ctx.strokeStyle = `rgba(156,217,249,${p.active})`;
+      ctx.strokeStyle = `rgba(39, 1, 253,${p.active})`;
       ctx.stroke();
     });
   };
@@ -152,15 +153,15 @@ const AnimatedHeader = () => {
       : (Math.sqrt(1 - (2 * t - 2) ** 2) + 1) / 2;
 
   return (
-    <div ref={headerRef} className="large-header" id="large-header">
+    <div ref={headerRef} className="large-header relative" id="large-header">
       <canvas ref={canvasRef} id="demo-canvas"></canvas>
 
-    
-
       <motion.div
-        className="main-title flex flex-col items-center justify-center text-center gap-4"
+        className="main-title flex flex-col items-center justify-center text-center gap-4 px-4"
         transition={{ duration: 1, delay: 0.6 }}
       >
+        
+
         <motion.h1
           className="text-3xl xs:text-4xl md:text-6xl font-extrabold text-white"
           initial={{ opacity: 0, y: 30 }}
@@ -170,15 +171,27 @@ const AnimatedHeader = () => {
           Hi, I'm <span className="text-[#2701fd]">Zignesh</span>
         </motion.h1>
 
+        {/* Tagline */}
         <motion.p
-          className="text-sm xs:text-sm md:text-3xl  font-semibold text-white"
+          className="text-sm xs:text-sm md:text-xl font-medium text-gray-300"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
         >
-          I develop Full Stack Web Applications, using
+          Passionate Developer | Problem Solver | Fast Learner
         </motion.p>
 
+        {/* Description */}
+        <motion.p
+          className="text-sm xs:text-base md:text-2xl font-semibold text-white"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.1 }}
+        >
+          I develop Full Stack Web Applications using
+        </motion.p>
+
+        {/* Tech Stack Title */}
         <motion.p
           className="text-lg xs:text-2xl md:text-3xl font-bold"
           initial={{ opacity: 0, y: 30 }}
@@ -189,71 +202,21 @@ const AnimatedHeader = () => {
           <span className="text-white">Stack</span>
         </motion.p>
 
-        {/* Animated MERN Stack Icons */}
+        {/* Scroll Down Icon */}
         <motion.div
-          className="flex flex-row items-center justify-center gap-8 mt-4"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: 0.2 } },
-          }}
+          className="mt-8 animate-bounce text-white text-2xl cursor-pointer"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.8 }}
+          onClick={() =>
+            document
+              .getElementById("about")
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
         >
-          {/* MongoDB */}
-          <motion.div
-            variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
-            className="flex flex-col items-center"
-          >
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" alt="MongoDB" className="w-10 h-10 mb-1" />
-            <span className="text-green-400 text-xs font-semibold mt-1">MongoDB</span>
-          </motion.div>
-          {/* Express */}
-          <motion.div
-            variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
-            className="flex flex-col items-center"
-          >
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg" alt="Express" className="w-10 h-10 mb-1 bg-white rounded-full p-1" />
-            <span className="text-gray-200 text-xs font-semibold mt-1">Express</span>
-          </motion.div>
-          {/* React */}
-          <motion.div
-            variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
-            className="flex flex-col items-center"
-          >
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" className="w-10 h-10 mb-1" />
-            <span className="text-blue-400 text-xs font-semibold mt-1">React</span>
-          </motion.div>
-          {/* Node.js */}
-          <motion.div
-            variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }}
-            className="flex flex-col items-center"
-          >
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-10 h-10 mb-1" />
-            <span className="text-green-300 text-xs font-semibold mt-1">Node.js</span>
-          </motion.div>
+          ↓
         </motion.div>
       </motion.div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
     </div>
   );
 };
