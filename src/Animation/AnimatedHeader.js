@@ -141,7 +141,7 @@ const AnimatedHeader = () => {
       if (!this.active) return;
       ctx.beginPath();
       ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false);
-      ctx.fillStyle = `rgba(156,217,249,${this.active})`;
+      ctx.fillStyle = `rgba(39, 1, 253,${this.active})`;
       ctx.fill();
     }
   }
@@ -158,7 +158,7 @@ const AnimatedHeader = () => {
 
       <motion.div
         className="main-title flex flex-col items-center justify-center text-center gap-4 px-4"
-        transition={{ duration: 1, delay: 0.6 }}
+        // transition={{ duration: 1, delay: 0.6 }}
       >
         
 
